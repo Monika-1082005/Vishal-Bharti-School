@@ -1,0 +1,104 @@
+/* Slider container */
+.slider {
+  height: 350px; /* Increased height */
+  margin: auto;
+  position: relative;
+  width: 95%; /* Adjusted width for more screen coverage */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Add fading shadow effect */
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  content: '';
+  height: 100%; /* Matches slider height */
+  position: absolute;
+  width: 15%; /* Adjust for the shadow width */
+  z-index: 2; /* Ensure it stays above the slides */
+}
+
+/* Left shadow */
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+/* Right shadow */
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg); /* Flip the gradient for the right side */
+}
+
+/* Slide track for scrolling images */
+.slide-track {
+  display: flex;
+  width: calc(550px * 18); /* Adjusted for the larger slide width */
+  animation: scroll 60s linear infinite; /* Smooth scrolling animation */
+}
+
+/* Pause animation on hover */
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+/* Keyframes for the scroll animation */
+@keyframes scroll {
+  0% {
+      transform: translateX(0); /* Start at the beginning */
+  }
+  100% {
+      transform: translateX(calc(-550px * 17)); /* Move one full set of images */
+  }
+}
+
+/* Individual slide styling */
+.slide {
+  height: 400px; /* Increased height */
+  width: 550px; /* Increased width */
+  flex-shrink: 0; /* Prevent slides from shrinking */
+  margin: 0 15px; /* Optional spacing between slides */
+  border-radius: 12px; /* Optional rounded corners */
+  overflow: hidden; /* Clip overflowing content */
+  background: #f0f0f0; /* Placeholder background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Optional shadow */
+}
+
+/* Slide images */
+.slide-image {
+  width: 100%; /* Ensures the image fills the slide width */
+  height: 100%; /* Ensures the image fills the slide height */
+  object-fit: cover; /* Maintain aspect ratio while covering the area */
+  border-radius: 8px; /* Optional for rounded image corners */
+  filter: brightness(70%); /* Darken image by default */
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect: Brighten the image */
+.slide-image:hover {
+  filter: brightness(100%); /* Return to original brightness */
+}
+
+
+/* For devices with width less than 768px */
+@media (max-width: 768px) {
+  .slide-image {
+    width: 80% !important;  /* Add !important to ensure it overrides other conflicting styles */
+    height: 80%;
+  }
+}
+
+/* For devices with width less than 480px */
+@media (max-width: 480px) {
+  .slide-image {
+    width: 70% !important;  /* Further reduce width and force the rule to apply */
+    height: 70%;
+  }
+
+}

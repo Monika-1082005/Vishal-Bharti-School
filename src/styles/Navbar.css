@@ -1,0 +1,25 @@
+/* Apply padding and margin adjustments for smaller screens */
+@media (max-width: 1024px) {
+    .container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    
+    .hidden.md\\:flex {
+      justify-content: center;
+    }
+  
+    .text-sm {
+      font-size: 14px;
+    }
+  
+    .space-x-6 {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  
+    .flex-grow {
+      flex-grow: 1;
+    }
+  }
+  

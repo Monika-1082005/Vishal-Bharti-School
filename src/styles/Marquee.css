@@ -1,0 +1,39 @@
+/* Marquee container */
+.marquee-container {
+  height: 80px; /* Adjust the height as needed */
+  margin: auto;
+  position: relative;
+  width: 95%; /* Adjusted width for more screen coverage */
+  overflow: hidden; /* Hide overflow content */
+}
+
+/* Marquee track for scrolling text */
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-scroll 40s linear infinite; /* Smooth scrolling animation */
+}
+
+/* Pause animation on hover */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Keyframes for the scroll animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(100%); /* Start from right */
+  }
+  100% {
+    transform: translateX(-100%); /* Scroll to left */
+  }
+}
+
+/* Individual text item styling */
+.marquee-text {
+  /* font-size: 1.2rem; */
+  /* font-weight: medium; */
+  color: white;
+  padding-right: 2rem; /* Space between text items */
+  padding-left: 2rem;  /* Space between text items */
+}
